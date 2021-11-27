@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List <String> paises = new ArrayList<String>();
+        List <String> paises = new ArrayList<>();
 
         paises.add("Egipto");
         paises.add("Rumania");
@@ -36,13 +36,9 @@ public class Main {
     }
 
     public static void ordenarLong(List<String> p){
-        Comparator c = new Comparator<String>(){
-            public int compare(String s1, String s2){
-                return Integer.compare(s1.length(), s2.length());
-            }
-        };
+        Comparator<String> c = Comparator.comparingInt(String::length);
 
-        Collections.sort(p, c);
+        p.sort(c);
         for (String elemento:p){
             System.out.println(elemento);
         }
